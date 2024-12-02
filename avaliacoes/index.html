@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Avaliações</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Tela de Login -->
+        <div id="login-screen" class="screen">
+            <h1>Login</h1>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p>Não tem uma conta? <a href="#" id="go-to-register">Cadastre-se</a></p>
+        </div>
+
+        <!-- Tela de Cadastro -->
+        <div id="register-screen" class="screen hidden">
+            <h1>Cadastro</h1>
+            <form id="register-form">
+                <input type="text" id="register-name" placeholder="Nome" required>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Senha" required>
+                <select id="register-type">
+                    <option value="empresa">Empresa</option>
+                    <option value="avaliador">Avaliador</option>
+                </select>
+                <button type="submit">Cadastrar</button>
+            </form>
+            <p>Já tem uma conta? <a href="#" id="go-to-login">Entre aqui</a></p>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard-screen" class="screen hidden">
+            <h1 id="welcome-message">Bem-vindo!</h1>
+
+            <!-- Painel da Empresa -->
+            <div id="company-section" class="hidden">
+                <h2>Postar Comentário</h2>
+                <form id="post-comment-form">
+                    <textarea id="company-comment-content" placeholder="Escreva o comentário..." required></textarea>
+                    <button type="submit">Postar</button>
+                </form>
+                <h2>Comentários Postados</h2>
+                <ul id="company-comments"></ul>
+            </div>
+
+            <!-- Painel do Avaliador -->
+            <div id="reviewer-section" class="hidden">
+                <h2>Enviar Print</h2>
+                <p id="submission-status"></p> <!-- Status dos envios -->
+                <form id="upload-form" enctype="multipart/form-data">
+                    <select id="comment-list"></select>
+                    <textarea id="reviewer-comment-content" placeholder="Escreva o comentário..." required></textarea>
+                    <input type="file" id="screenshot" accept="image/*" required>
+                    <button type="submit">Enviar</button>
+                </form>
+                <h2>Histórico</h2>
+                <ul id="reviewer-history"></ul>
+            </div>
+
+            <!-- Logout -->
+            <button id="logout">Sair</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
